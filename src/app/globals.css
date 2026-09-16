@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0a0e27;
+  --orange: #ff5c00;
+  --white: #ffffff;
+  --soft: #f4f6fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+/* Custom cursor — hide default on fine pointers */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: var(--orange);
+  color: white;
+}
+
+@layer components {
+  .btn-orange {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white
+      transition-all duration-300 hover:scale-[1.03] active:scale-[0.97];
+    background: #ff5c00;
+    box-shadow: 0 12px 30px rgba(255, 92, 0, 0.35);
+  }
+
+  .btn-orange:hover {
+    background: #ff7a33;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-navy
+      bg-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97];
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white
+      border-2 border-white/40 transition-all duration-300 hover:bg-white hover:text-navy hover:scale-[1.03] active:scale-[0.97];
+  }
+
+  .section-pad {
+    @apply px-5 sm:px-8 lg:px-14 xl:px-20 py-20 md:py-28;
+  }
+
+  .wrap {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .card-service {
+    @apply bg-white rounded-2xl p-7 shadow-card transition-all duration-300;
+  }
+
+  .card-service:hover {
+    @apply shadow-card-hover -translate-y-2;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f7fb;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff5c00;
+  border-radius: 4px;
+}
